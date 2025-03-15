@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Farming in Himachal Pradesh</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for finer control */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-apple-orchard.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .variety:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #2d3e50;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-top:hover {
+            background-color: #1a2a3a;
+        }
+    </style>
+</head>
+<body class="font-roboto bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-blue-900 to-blue-800 py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-2xl font-bold">Apple Farming in Himachal</div>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="text-white hover:text-yellow-400 transition duration-300">Home</a></li>
+                <li><a href="varieties.html" class="text-white hover:text-yellow-400 transition duration-300">Apple Varieties</a></li>
+                <li><a href="climate.html" class="text-white hover:text-yellow-400 transition duration-300">Climate & Soil</a></li>
+                <li><a href="maintenance.html" class="text-white hover:text-yellow-400 transition duration-300">Planting & Maintenance</a></li>
+                <li><a href="pests.html" class="text-white hover:text-yellow-400 transition duration-300">Pests & Diseases</a></li>
+                <li><a href="harvesting.html" class="text-white hover:text-yellow-400 transition duration-300">Harvesting</a></li>
+                <li><a href="boosting.html" class="text-white hover:text-yellow-400 transition duration-300">Expansion & Development</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <section id="pests" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Pests & Diseases</h2>
+            <p class="text-lg text-center mb-8">Common pests and diseases affecting apple orchards include:</p>
+            <ul class="list-disc list-inside text-lg mb-8">
+                <li>Apple worms</li>
+                <li>Codling moth</li>
+                <li>Powdery mildew</li>
+                <li>Fire blight</li>
+            </ul>
+            <p class="text-lg text-center mb-8">Integrated pest management (IPM) techniques and natural predators are vital to control these issues.</p>
+            <img src="images/pest-management.jpg" alt="Pest Management in Apple Farming" class="rounded-lg shadow-md mx-auto">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-blue-900 to-blue-800 py-8 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Apple Farming in Himachal Pradesh. All Rights Reserved.</p>
+            <p class="mt-4">Follow us on social media:</p>
+            <ul class="flex justify-center space-x-6 mt-2">
+                <li><a href="#" class="hover:text-yellow-400 transition duration-300">Facebook</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition duration-300">Instagram</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition duration-300">Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

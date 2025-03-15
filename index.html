@@ -5,26 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apple Farming in Himachal Pradesh</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
+        /* Custom styles for finer control */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-apple-orchard.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-apple-orchard.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh;
         }
-        .variety-card {
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        .variety-card:hover {
+        .variety:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .back-to-top {
             display: none;
@@ -32,6 +23,7 @@
             bottom: 20px;
             right: 20px;
             z-index: 99;
+            font-size: 18px;
             border: none;
             outline: none;
             background-color: #2d3e50;
@@ -39,132 +31,37 @@
             cursor: pointer;
             padding: 15px;
             border-radius: 50%;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
         }
         .back-to-top:hover {
             background-color: #1a2a3a;
-            transform: scale(1.1);
-        }
-        .stat-card {
-            transition: all 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        .section-transition {
-            position: relative;
-            height: 100px;
-            overflow: hidden;
-        }
-        .section-transition svg {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100px;
-        }
-        /* Mobile menu */
-        .mobile-menu {
-            display: none;
-        }
-        /* Slider arrows */
-        .slider-arrow {
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-        .slider-arrow:hover {
-            opacity: 1;
-        }
-        /* Accessibility */
-        :focus {
-            outline: 2px solid #3b82f6;
-            outline-offset: 2px;
-        }
-        @media (max-width: 768px) {
-            .desktop-menu {
-                display: none;
-            }
-            .mobile-menu {
-                display: block;
-            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="font-roboto bg-gray-50">
 
     <!-- Navbar -->
-    <nav class="bg-gradient-to-r from-blue-900 to-blue-800 py-4 px-6 shadow-lg fixed w-full z-50">
+    <nav class="bg-gradient-to-r from-blue-900 to-blue-800 py-4 px-6 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-white text-2xl font-bold flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-                <span>Apple Farming in Himachal</span>
-            </div>
-            <!-- Desktop Menu -->
-            <ul class="desktop-menu flex space-x-6">
-                <li><a href="#home" class="text-white hover:text-yellow-400 transition duration-300">Home</a></li>
-                <li><a href="#varieties" class="text-white hover:text-yellow-400 transition duration-300">Apple Varieties</a></li>
-                <li><a href="#climate" class="text-white hover:text-yellow-400 transition duration-300">Climate & Soil</a></li>
-                <li><a href="#maintenance" class="text-white hover:text-yellow-400 transition duration-300">Planting & Maintenance</a></li>
-                <li><a href="#pests" class="text-white hover:text-yellow-400 transition duration-300">Pests & Diseases</a></li>
-                <li><a href="#harvesting" class="text-white hover:text-yellow-400 transition duration-300">Harvesting</a></li>
-                <li><a href="#expansion" class="text-white hover:text-yellow-400 transition duration-300">Expansion</a></li>
-            </ul>
-            <!-- Mobile Menu Button -->
-            <div class="mobile-menu">
-                <button id="menuButton" class="text-white focus:outline-none" aria-label="Toggle menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenuDropdown" class="hidden bg-blue-800 px-6 py-4 mt-4">
-            <ul class="space-y-3">
-                <li><a href="#home" class="text-white block hover:text-yellow-400 transition duration-300">Home</a></li>
-                <li><a href="#varieties" class="text-white block hover:text-yellow-400 transition duration-300">Apple Varieties</a></li>
-                <li><a href="#climate" class="text-white block hover:text-yellow-400 transition duration-300">Climate & Soil</a></li>
-                <li><a href="#maintenance" class="text-white block hover:text-yellow-400 transition duration-300">Planting & Maintenance</a></li>
-                <li><a href="#pests" class="text-white block hover:text-yellow-400 transition duration-300">Pests & Diseases</a></li>
-                <li><a href="#harvesting" class="text-white block hover:text-yellow-400 transition duration-300">Harvesting</a></li>
-                <li><a href="#expansion" class="text-white block hover:text-yellow-400 transition duration-300">Expansion</a></li>
+            <div class="text-white text-2xl font-bold">Apple Farming in Himachal</div>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="text-white hover:text-yellow-400 transition duration-300">Home</a></li>
+                <li><a href="varieties.html" class="text-white hover:text-yellow-400 transition duration-300">Apple Varieties</a></li>
+                <li><a href="climate.html" class="text-white hover:text-yellow-400 transition duration-300">Climate & Soil</a></li>
+                <li><a href="maintenance.html" class="text-white hover:text-yellow-400 transition duration-300">Planting & Maintenance</a></li>
+                <li><a href="pests.html" class="text-white hover:text-yellow-400 transition duration-300">Pests & Diseases</a></li>
+                <li><a href="harvesting.html" class="text-white hover:text-yellow-400 transition duration-300">Harvesting</a></li>
+                <li><a href="boosting.html" class="text-white hover:text-yellow-400 transition duration-300">Expansion & Development</a></li>
             </ul>
         </div>
-    </nav>
+    </nav>    
 
     <!-- Hero Section -->
-    <section id="home" class="hero flex items-center justify-center text-white text-center">
+    <section id="home" class="hero flex items-center justify-center h-screen text-white text-center">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">Apple Farming in Himachal Pradesh</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Explore the world of apple cultivation in the scenic valleys of Himachal Pradesh, India's apple paradise.</p>
-            <a href="#varieties" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 inline-block">Discover More</a>
-        </div>
-    </section>
-
-    <!-- Statistics Banner -->
-    <section class="py-8 bg-blue-800 text-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-                <div class="stat-card p-4 bg-blue-700 rounded-lg">
-                    <h3 class="text-3xl font-bold mb-2">115,680</h3>
-                    <p>Hectares of Apple Orchards</p>
-                </div>
-                <div class="stat-card p-4 bg-blue-700 rounded-lg">
-                    <h3 class="text-3xl font-bold mb-2">124,000+</h3>
-                    <p>Farmers Benefited</p>
-                </div>
-                <div class="stat-card p-4 bg-blue-700 rounded-lg">
-                    <h3 class="text-3xl font-bold mb-2">27%</h3>
-                    <p>Women Farmers</p>
-                </div>
-                <div class="stat-card p-4 bg-blue-700 rounded-lg">
-                    <h3 class="text-3xl font-bold mb-2">30</h3>
-                    <p>Farmer Producer Companies</p>
-                </div>
-            </div>
+            <h1 class="text-5xl font-bold mb-6">Welcome to Apple Farming in Himachal Pradesh</h1>
+            <p class="text-xl mb-8">Explore the world of apple cultivation in the scenic valleys of Himachal Pradesh.</p>
+            <img src="images/hero-apple-orchard.jpg" alt="Apple Orchard in Himachal Pradesh" class="rounded-lg shadow-2xl mx-auto">
         </div>
     </section>
 
@@ -225,786 +122,70 @@
         </div>
     </section>
 
-    <!-- Wavy Section Transition -->
-    <div class="section-transition">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="#f9fafb">
-            <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,100L1360,100C1280,100,1120,100,960,100C800,100,640,100,480,100C320,100,160,100,80,100L0,100Z"></path>
-        </svg>
-    </div>
-
-    <!-- Climate and Soil Section -->
-    <section id="climate" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <h2 class="text-4xl font-bold mb-6">Climate & Soil Requirements</h2>
-                    <p class="text-lg mb-6">Himachal Pradesh provides the perfect temperate climate for apple cultivation. Apples thrive in areas with:</p>
-                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                        <h3 class="text-xl font-semibold mb-4">Ideal Conditions</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Temperature range of 18°C to 22°C</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Winter chill period of 800 to 1,000 hours</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Altitude: 1,000 to 2,500 meters above sea level</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Rainfall: 800 to 1,200 mm annually</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Soil: Slightly acidic with a pH of 6.0 to 6.5</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300 flex items-center">
-                        <span>Download Climate Guide</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="bg-white p-4 rounded-lg shadow-md">
-                        <img src="images/climate-graph.jpg" alt="Climate Graph for Apple Cultivation" class="rounded-lg w-full">
-                        <div class="mt-4">
-                            <h4 class="font-semibold text-lg">Monthly Temperature & Rainfall</h4>
-                            <p class="text-gray-600">Temperature and rainfall patterns in major apple-growing regions of Himachal Pradesh.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Planting & Maintenance Section -->
-    <section id="maintenance" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">Planting & Maintenance</h2>
-            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">Follow these essential practices for successful apple cultivation in Himachal Pradesh's unique climate.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="bg-blue-800 py-4">
-                        <h3 class="text-xl font-semibold text-white text-center">Land Preparation</h3>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Clear all weeds and unwanted vegetation</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Plow soil to a depth of 45-60 cm</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Add organic matter like well-rotted compost</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Test and adjust soil pH as needed</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="bg-blue-800 py-4">
-                        <h3 class="text-xl font-semibold text-white text-center">Planting Techniques</h3>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Choose rootstocks like M9, MM106 for local conditions</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Space trees 4-5 meters apart in rows</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Dig pits of 1m × 1m × 1m size</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Best planting season: December to February</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    <div class="bg-blue-800 py-4">
-                        <h3 class="text-xl font-semibold text-white text-center">Water & Nutrition</h3>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Install drip irrigation for efficient water use</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Apply fertilizers as per soil test recommendations</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Use mulching to conserve soil moisture</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Annual application of farm yard manure</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-12 text-center">
-                <img src="images/planting.jpg" alt="Planting Apple Trees" class="rounded-lg shadow-md mx-auto max-w-2xl">
-                <p class="mt-4 text-gray-600 italic">Apple tree planting demonstration in Shimla district</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pests & Diseases Section with Accordions -->
-    <section id="pests" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">Pests & Diseases Management</h2>
-            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">Implementing proper pest and disease management strategies is crucial for quality apple production.</p>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <h3 class="text-xl font-semibold bg-blue-800 text-white p-4">Common Pests</h3>
-                        
-                        <div class="divide-y divide-gray-200">
-                            <!-- Accordion Item 1 -->
-                            <div class="pest-accordion">
-                                <button class="accordion-header w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-gray-50" aria-expanded="false">
-                                    <span>Apple Worms</span>
-                                    <svg class="accordion-arrow h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="accordion-content hidden px-4 py-3">
-                                    <p class="text-gray-600">Apple worms (Codling moth larvae) bore into the fruit and feed on the core. Symptoms include entry holes with frass and internal tunneling.</p>
-                                    <p class="mt-2 text-gray-600"><strong>Control:</strong> Pheromone traps, timely spraying of recommended insecticides, and proper orchard sanitation.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Accordion Item 2 -->
-                            <div class="pest-accordion">
-                                <button class="accordion-header w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-gray-50" aria-expanded="false">
-                                    <span>Codling Moth</span>
-                                    <svg class="accordion-arrow h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="accordion-content hidden px-4 py-3">
-                                    <p class="text-gray-600">Adult moths lay eggs on leaves and fruit. The emerging larvae cause significant damage to apple fruits.</p>
-                                    <p class="mt-2 text-gray-600"><strong>Control:</strong> Mating disruption techniques, biological controls, and strategic application of insecticides.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Accordion Item 3 -->
-                            <div class="pest-accordion">
-                                <button class="accordion-header w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-gray-50" aria-expanded="false">
-                                    <span>Woolly Apple Aphid</span>
-                                    <svg class="accordion-arrow h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="accordion-content hidden px-4 py-3">
-                                    <p class="text-gray-600">These aphids appear as white cottony masses on branches and wounds. They cause gall formation and can transmit diseases.</p>
-                                    <p class="mt-2 text-gray-600"><strong>Control:</strong> Resistant rootstocks, natural predators, and targeted insecticide applications.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <h3 class="text-xl font-semibold bg-blue-800 text-white p-4">Common Diseases</h3>
-                        
-                        <div class="divide-y divide-gray-200">
-                            <!-- Accordion Item 1 -->
-                            <div class="disease-accordion">
-                                <button class="accordion-header w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-gray-50" aria-expanded="false">
-                                    <span>Powdery Mildew</span>
-                                    <svg class="accordion-arrow h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="accordion-content hidden px-4 py-3">
-                                    <p class="text-gray-600">Appears as white powdery patches on leaves and shoots. Causes leaf curling, stunted growth, and reduced fruit quality.</p>
-                                    <p class="mt-2 text-gray-600"><strong>Control:</strong> Fungicide applications, proper spacing for air circulation, and resistant cultivars.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Accordion Item 2 -->
-                            <div class="disease-accordion">
-                                <button class="accordion-header w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-gray-50" aria-expanded="false">
-                                    <span>Fire Blight</span>
-                                    <svg class="accordion-arrow h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="accordion-content hidden px-4 py-3">
-                                    <p class="text-gray-600">A bacterial disease causing shoots to appear scorched. Infected branches show a shepherd's crook appearance.</p>
-                                    <p class="mt-2 text-gray-600"><strong>Control:</strong> Prune infected branches, copper-based sprays, and avoid excessive nitrogen fertilization.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Accordion Item 3 -->
-                            <div class="disease-accordion">
-                                <button class="accordion-header w-full px-4 py-3 text-left font-medium flex justify-between items-center hover:bg-gray-50" aria-expanded="false">
-                                    <span>Apple Scab</span>
-                                    <svg class="accordion-arrow h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="accordion-content hidden px-4 py-3">
-                                    <p class="text-gray-600">Causes olive-green to brown lesions on leaves and fruit. Severe infections lead to defoliation and fruit cracking.</p>
-                                    <p class="mt-2 text-gray-600"><strong>Control:</strong> Protective fungicide sprays, sanitation practices, and resistant varieties.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-12 text-center">
-                <h3 class="text-2xl font-semibold mb-6">Integrated Pest Management (IPM)</h3>
-                <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
-                    <p class="text-gray-700">IPM combines biological, cultural, physical, and chemical tools to minimize economic, health, and environmental risks. Key strategies include:</p>
-                    <ul class="mt-4 space-y-2 text-left">
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Regular monitoring of pest populations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Use of pest-resistant apple varieties</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Encouraging natural predators</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Targeted application of selective pesticides only when necessary</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Harvesting Section with Timeline -->
-    <section id="harvesting" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">Harvesting & Marketing</h2>
-            <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">Proper harvesting techniques and post-harvest management are crucial for maintaining the quality and value of your apple crop.</p>
-            
-            <div class="flex flex-col md:flex-row items-center">
-                <!-- Timeline Section -->
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-6">
-                    <h3 class="text-2xl font-semibold mb-6">Harvesting Timeline</h3>
-                    <div class="relative">
-                        <!-- Vertical Line -->
-                        <div class="absolute left-6 top-0 h-full w-0.5 bg-blue-600"></div>
-                        
-                        <!-- Timeline Items -->
-                        <div class="relative z-10 mb-8">
-                            <div class="flex items-center">
-                                <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center shadow-lg">
-                                    <span class="text-white font-bold">1</span>
-                                </div>
-                                <div class="ml-4 bg-blue-50 p-4 rounded-lg shadow">
-                                    <h4 class="font-semibold">Determine Maturity</h4>
-                                    <p class="text-gray-600">Check color development, ease of fruit separation, and firmness to determine optimal harvest time.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="relative z-10 mb-8">
-                            <div class="flex items-center">
-                                <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center shadow-lg">
-                                    <span class="text-white font-bold">2</span>
-                                </div>
-                                <div class="ml-4 bg-blue-50 p-4 rounded-lg shadow">
-                                    <h4 class="font-semibold">Harvesting Method</h4>
-                                    <p class="text-gray-600">Carefully hand-pick apples with their stems intact. Use picking bags and handle fruit gently to avoid bruising.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="relative z-10 mb-8">
-                            <div class="flex items-center">
-                                <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center shadow-lg">
-                                    <span class="text-white font-bold">3</span>
-                                </div>
-                                <div class="ml-4 bg-blue-50 p-4 rounded-lg shadow">
-                                    <h4 class="font-semibold">Sorting & Grading</h4>
-                                    <p class="text-gray-600">Sort apples based on size, color, and quality. Proper grading increases market value significantly.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="relative z-10">
-                            <div class="flex items-center">
-                                <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center shadow-lg">
-                                    <span class="text-white font-bold">4</span>
-                                </div>
-                                <div class="ml-4 bg-blue-50 p-4 rounded-lg shadow">
-                                    <h4 class="font-semibold">Storage & Transport</h4>
-                                    <p class="text-gray-600">Store in cool conditions (0-4°C) with 85-90% humidity. Use proper packaging for transportation to prevent damage.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Marketing Info -->
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-6">Marketing Channels</h3>
-                    <div class="bg-gray-50 rounded-lg shadow-md p-6">
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                </svg>
-                                <div>
-                                    <h4 class="font-semibold">Direct Marketing</h4>
-                                    <p class="text-gray-600">Sell directly to consumers through farm stands or local farmers' markets for better profit margins.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                                <div>
-                                    <h4 class="font-semibold">Wholesale Markets</h4>
-                                    <p class="text-gray-600">Sell in bulk to wholesale markets in major cities like Delhi, Mumbai, and Kolkata.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                                </svg>
-                                <div>
-                                    <h4 class="font-semibold">Producer Organizations</h4>
-                                    <p class="text-gray-600">Join Farmer Producer Companies to gain collective bargaining power and access to better markets.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <svg class="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                </svg>
-                                <div>
-                                    <h4 class="font-semibold">Export Markets</h4>
-                                    <p class="text-gray-600">Premium quality apples can be exported to Middle Eastern and Southeast Asian countries.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                            <h4 class="font-semibold flex items-center">
-                                <svg class="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                Value Addition Opportunities
-                            </h4>
-                            <p class="text-gray-600 mt-2">Consider processing lower grade apples into products like juices, ciders, jams, and dried apple chips to maximize returns.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-12 text-center">
-                <img src="images/harvesting.jpg" alt="Apple Harvesting Process" class="rounded-lg shadow-md mx-auto max-w-2xl">
-                <p class="mt-4 text-gray-600 italic">Farmers harvesting Himachal's premium apples using traditional methods</p>
-            </div>
-        </div>
-    </section>
-
-<!-- Expansion Section with improved layout and animations -->
-<section id="expansion" class="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
-    <div class="container mx-auto px-4 max-w-6xl">
-        <h2 class="text-4xl font-bold text-center mb-3 text-green-800">Boosting Apple Cultivation in Himachal Pradesh</h2>
-        <div class="w-24 h-1 bg-red-500 mx-auto mb-12 rounded-full"></div>
-        
-        <div class="flex flex-col md:flex-row gap-8 items-center mb-12">
-            <div class="md:w-1/2">
-                <p class="text-lg mb-8 leading-relaxed">Since 1950, apple orchards have expanded dramatically from just 400 hectares to an impressive <span class="font-bold text-red-600">115,680 hectares</span> by 2023. With the World Bank's support, farmers have successfully adopted high-density cultivation techniques, modern farming practices, and advanced irrigation systems.</p>
-                
-                <h3 class="text-2xl font-semibold mb-4 text-green-700">Key Achievements</h3>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start">
-                        <svg class="h-6 w-6 text-green-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>30 Farmer Producer Companies with 12,400 members</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-6 w-6 text-green-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>124,000 farmers empowered, including 27% women</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-6 w-6 text-green-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>3,100 hectares of new land cultivated and 10,900 hectares rejuvenated</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-6 w-6 text-green-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>Modern fruit markets and e-marketplace access for better pricing</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-6 w-6 text-green-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>International expertise from New Zealand and the Netherlands for advanced techniques</span>
-                    </li>
-                </ul>
-                
-                <div class="flex justify-center md:justify-start">
-                    <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-md">Learn How to Join</a>
-                </div>
-            </div>
-            
-            <div class="md:w-1/2 relative">
-                <div class="relative">
-                    <img src="images/expansion.jpg" alt="High-Density Apple Orchards" class="rounded-lg shadow-xl mx-auto object-cover h-80 w-full" id="expansionImage">
-                    <div class="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
-                </div>
-                <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-lg hidden md:block">
-                    <div class="flex items-center text-sm">
-                        <svg class="h-5 w-5 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                        </svg>
-                        <span class="font-bold text-gray-800">High-Density Cultivation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Image Gallery -->
-        <div class="mt-16">
-            <h3 class="text-2xl font-semibold text-center mb-8 text-green-700">Orchard Gallery</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="imageGallery">
-                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105">
-                    <img src="images/expansion.jpg" alt="Apple Orchard 1" class="object-cover w-full h-48">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105">
-                    <img src="images/varieties.jpg" alt="Apple Orchard 2" class="object-cover w-full h-48">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105">
-                    <img src="images/harvest.jpg" alt="Apple Orchard 3" class="object-cover w-full h-48">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Statistics Counter -->
-        <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
-            <h3 class="text-2xl font-semibold text-center mb-8 text-green-700">Growth by Numbers</h3>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-red-600 counter-value" data-target="115680">0</div>
-                    <div class="text-gray-600 mt-2">Hectares</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-red-600 counter-value" data-target="124000">0</div>
-                    <div class="text-gray-600 mt-2">Farmers</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-red-600 counter-value" data-target="30">0</div>
-                    <div class="text-gray-600 mt-2">FPCs</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-red-600 counter-value" data-target="75">0</div>
-                    <div class="text-gray-600 mt-2">Years of Growth</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Improved Footer -->
-<footer class="bg-gradient-to-r from-green-900 to-blue-800 py-12 text-white">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between">
-            <div class="mb-8 md:mb-0">
-                <h3 class="text-2xl font-bold mb-4">Apple Farming in Himachal Pradesh</h3>
-                <p class="text-gray-300 max-w-md">Supporting sustainable apple cultivation through modern techniques, education, and community development since 1950.</p>
-            </div>
-            
-            <div class="mb-8 md:mb-0">
-                <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
-                    <li><a href="#varieties" class="text-gray-300 hover:text-white transition duration-300">Apple Varieties</a></li>
-                    <li><a href="#expansion" class="text-gray-300 hover:text-white transition duration-300">Growth & Expansion</a></li>
-                    <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="text-xl font-semibold mb-4">Connect With Us</h4>
-                <div class="flex space-x-4 mb-6">
-                    <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition duration-300">
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition duration-300">
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="h-10 w-10 flex items-center justify-center rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition duration-300">
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </a>
-                </div>
-                <p class="text-sm text-gray-300">Sign up for our newsletter:</p>
-                <form class="mt-2 flex">
-                    <input type="email" placeholder="Your email address" class="px-4 py-2 rounded-l-md w-full focus:outline-none">
-                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-r-md transition duration-300">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-blue-900 to-blue-800 py-8 text-white">
+        <div class="container mx-auto px-4 text-center">
             <p>© 2025 Apple Farming in Himachal Pradesh. All Rights Reserved.</p>
-            <div class="mt-4 md:mt-0">
-                <a href="#" class="text-sm text-gray-300 hover:text-white mr-4">Privacy Policy</a>
-                <a href="#" class="text-sm text-gray-300 hover:text-white">Terms of Service</a>
-            </div>
+            <p class="mt-4">Follow us on social media:</p>
+            <ul class="flex justify-center space-x-6 mt-2">
+                <li><a href="#" class="hover:text-yellow-400 transition duration-300">Facebook</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition duration-300">Instagram</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition duration-300">Twitter</a></li>
+            </ul>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- Improved Back to Top Button -->
-<button onclick="topFunction()" id="backToTop" class="fixed bottom-6 right-6 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg transition-all duration-300 opacity-0 transform translate-y-10" title="Go to top">
-    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-    </svg>
-</button>
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTop" class="back-to-top" title="Go to top">↑</button>
 
-<!-- Modal for image gallery -->
-<div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center">
-    <div class="max-w-4xl max-h-screen p-4">
-        <img id="modalImage" src="" alt="Gallery image" class="max-h-[80vh] max-w-full">
-        <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-gray-300">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-    </div>
-</div>
-
-<script>
-    // Improved Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80, // Account for fixed header
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-            }
+            });
         });
-    });
 
-    // Enhanced Back to Top Button with animation
-    const backToTopButton = document.getElementById("backToTop");
-    window.addEventListener('scroll', function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopButton.classList.remove('opacity-0', 'translate-y-10');
-            backToTopButton.classList.add('opacity-100', 'translate-y-0');
-        } else {
-            backToTopButton.classList.add('opacity-0', 'translate-y-10');
-            backToTopButton.classList.remove('opacity-100', 'translate-y-0');
-        }
-    });
+        let backToTopButton = document.getElementById("backToTop");
 
-    function topFunction() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    // Image gallery modal functionality
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const galleryModal = document.getElementById('galleryModal');
-    const modalImage = document.getElementById('modalImage');
-    const closeModal = document.getElementById('closeModal');
-
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const imgSrc = item.querySelector('img').src;
-            modalImage.src = imgSrc;
-            galleryModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling while modal is open
-        });
-    });
-
-    closeModal.addEventListener('click', () => {
-        galleryModal.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-    });
-
-    galleryModal.addEventListener('click', (e) => {
-        if (e.target === galleryModal) {
-            galleryModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Escape key closes modal
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !galleryModal.classList.contains('hidden')) {
-            galleryModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Animated counters for statistics
-    const counterElements = document.querySelectorAll('.counter-value');
-    
-    // Start animation when element is in viewport
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                const targetValue = parseInt(element.getAttribute('data-target'));
-                animateCounter(element, targetValue);
-                observer.unobserve(element);
-            }
-        });
-    }, observerOptions);
-
-    counterElements.forEach(counter => {
-        observer.observe(counter);
-    });
-
-    function animateCounter(element, targetValue) {
-        const duration = 2000; // Animation duration in milliseconds
-        const frameDuration = 16; // Duration of a single frame (approximately 60fps)
-        const totalFrames = Math.round(duration / frameDuration);
-        let frame = 0;
-        
-        const initialValue = parseInt(element.textContent) || 0;
-        const increment = Math.ceil((targetValue - initialValue) / totalFrames);
-        
-        const counter = setInterval(() => {
-            frame++;
-            const current = initialValue + (increment * frame);
-            
-            if (current >= targetValue) {
-                element.textContent = targetValue.toLocaleString();
-                clearInterval(counter);
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
             } else {
-                element.textContent = current.toLocaleString();
+                backToTopButton.style.display = "none";
             }
-            
-            if (frame === totalFrames) {
-                clearInterval(counter);
-            }
-        }, frameDuration);
-    }
+        };
 
-    const expansionImage = document.getElementById('expansionImage');
-    const imageSources = [
-        'images/expansion.jpg',
-        'images/varieties.jpg',
-        'images/harvest.jpg',
-        'images/apple-farmers.jpg'
-    ];
-    let currentImageIndex = 0;
+        function topFunction() {
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
+        }
 
-    function rotateExpansionImage() {
-        currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-        
-        expansionImage.style.opacity = '0';
-        
-        setTimeout(() => {
-            expansionImage.src = imageSources[currentImageIndex];
-            
-            expansionImage.style.opacity = '1';
-        }, 500);
-    }
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.variety');
+        const totalSlides = slides.length;
 
-    expansionImage.style.transition = 'opacity 0.5s ease-in-out';
-    
-    setInterval(rotateExpansionImage, 7000);
-</script>
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000);
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
